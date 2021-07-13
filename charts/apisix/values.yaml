@@ -211,7 +211,13 @@ etcd:
   service:
     port: 2379
 
-  replicaCount: 3
+  statefulset:
+    replicaCount: 3
+
+  persistence:
+    enabled: true
+    size: 8Gi
+    # storageClass: "-"
 
 
 dashboard:
