@@ -34,6 +34,9 @@ data:
           {{- range .endpoints }}
           - {{ . }}
           {{- end }}
+        {{- if .prefix }}
+        prefix: {{ .prefix }}
+        {{- end }}
         {{- if .username }}
         username: {{ .username }}
         {{- end }}
@@ -60,3 +63,7 @@ data:
           password: {{ .password }}
         {{- end }}
     {{- end }}
+  {{ if .Values.config.schema }}
+  schema.json: |-
+{{ .Values.config.schema | indent 4 }}
+  {{ end }}
